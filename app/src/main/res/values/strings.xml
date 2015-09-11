@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Directorio</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="tabs">
+        <item>Bancos</item>
+        <item>Servicios</item>
+    </string-array>
+</resources>
