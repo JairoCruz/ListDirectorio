@@ -10,7 +10,9 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
 
+import com.example.tse.listdirectorio.Fragment.Fragment_diputado;
 import com.example.tse.listdirectorio.Fragment.MyFragmentTabs;
+import com.example.tse.listdirectorio.FragmentEmpty;
 import com.example.tse.listdirectorio.R;
 
 /**
@@ -18,6 +20,8 @@ import com.example.tse.listdirectorio.R;
  */
 public class MyTabsPagerAdapter extends FragmentStatePagerAdapter {
     Context context;
+    public static final int LIST_EMPTY = 0;
+    public static final int LIST_DIPUTADO = 1;
     int icon[] = {R.mipmap.ic_action_collection, R.mipmap.ic_action_view_as_list};
     String [] tabText;
     public MyTabsPagerAdapter(FragmentManager fm, Context context) {
@@ -28,8 +32,19 @@ public class MyTabsPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        MyFragmentTabs myFragmentTabs = MyFragmentTabs.getInstance(position);
-        return myFragmentTabs;
+        // MyFragmentTabs myFragmentTabs = MyFragmentTabs.getInstance(position);
+        // return myFragmentTabs;
+        Fragment fragment  = null;
+        switch (position){
+            case LIST_EMPTY:
+                fragment = FragmentEmpty.newInstance("","");
+                break;
+            case LIST_DIPUTADO:
+                fragment = Fragment_diputado.newInstance();
+                break;
+
+        }
+        return fragment;
     }
 
     @Override
