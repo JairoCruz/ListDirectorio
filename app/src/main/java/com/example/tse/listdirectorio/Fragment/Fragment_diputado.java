@@ -30,6 +30,7 @@ import com.example.tse.listdirectorio.Adapter.AdapterDiputado;
 import com.example.tse.listdirectorio.Model.Diputado;
 import com.example.tse.listdirectorio.Network.MyAplication;
 import com.example.tse.listdirectorio.Network.VolleySingleton;
+import com.example.tse.listdirectorio.Parse.ParseJsonResponse;
 import com.example.tse.listdirectorio.R;
 
 import org.json.JSONArray;
@@ -73,12 +74,14 @@ public class Fragment_diputado extends Fragment {
 
         volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
-        sendJsonRequest();
+        // sendJsonRequest();
     }
 
 
     private void sendJsonRequest() {
-        /*JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, getRequestUrl(), new Response.Listener<JSONObject>() {
+        /*
+        Este codigo me permite recuperar un objeto JSON
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, getRequestUrl(), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 textVolleyError.setVisibility(View.GONE);
@@ -94,12 +97,14 @@ public class Fragment_diputado extends Fragment {
             }
         });
         requestQueue.add(request);*/
+        // Este codigo me permite recuperar un Array JSON
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET,getRequestUrl(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 textVolleyError.setVisibility(View.GONE);
-                Log.e("Error: ", response.toString());
-                Toast.makeText(getActivity(),response.toString(), Toast.LENGTH_SHORT).show();
+                listDiputados = ParseJsonResponse.parseJson(response);
+                adapterDiputado.setListDiputados(listDiputados);
+
             }
         }, new Response.ErrorListener() {
             @Override

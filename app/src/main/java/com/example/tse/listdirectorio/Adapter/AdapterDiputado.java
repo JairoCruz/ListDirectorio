@@ -43,12 +43,12 @@ public class AdapterDiputado extends RecyclerView.Adapter<AdapterDiputado.ViewHo
     public void onBindViewHolder(final ViewHolderDiputado viewHolderDiputado, int position) {
         Diputado currentDiputado = listDiputados.get(position);
         viewHolderDiputado.diputadoNombre.setText(currentDiputado.getNombre());
-        viewHolderDiputado.diputadoSuplente.setText(currentDiputado.getSuplente());
-        viewHolderDiputado.diputadoEmail.setText(currentDiputado.getEmail());
-        viewHolderDiputado.diputadoEntidad.setText(currentDiputado.getEntidad());
-        viewHolderDiputado.diputadoCurrul.setText(currentDiputado.getCurul());
+//        viewHolderDiputado.diputadoSuplente.setText(currentDiputado.getSuplente());
+//        viewHolderDiputado.diputadoEmail.setText(currentDiputado.getEmail());
+//        viewHolderDiputado.diputadoEntidad.setText(currentDiputado.getEntidad());
+//        viewHolderDiputado.diputadoCurrul.setText(currentDiputado.getCurul());
         viewHolderDiputado.diputadoFraccion.setText(currentDiputado.getFraccion());
-        viewHolderDiputado.diputadoTipoEleccion.setText(currentDiputado.getTipo_de_eleccion());
+//        viewHolderDiputado.diputadoTipoEleccion.setText(currentDiputado.getTipo_de_eleccion());
     }
 
     @Override
@@ -69,13 +69,13 @@ public class AdapterDiputado extends RecyclerView.Adapter<AdapterDiputado.ViewHo
 
         public ViewHolderDiputado(View itemView) {
             super(itemView);
-            diputadoEntidad = (TextView) itemView.findViewById(R.id.diputadoEntidad);
-            diputadoTipoEleccion = (TextView) itemView.findViewById(R.id.diputadoTipoEleccion);
+//            diputadoEntidad = (TextView) itemView.findViewById(R.id.diputadoEntidad);
+//            diputadoTipoEleccion = (TextView) itemView.findViewById(R.id.diputadoTipoEleccion);
             diputadoFraccion = (TextView) itemView.findViewById(R.id.diputadoFraccion);
-            diputadoSuplente = (TextView) itemView.findViewById(R.id.diputadoSuplente);
+//            diputadoSuplente = (TextView) itemView.findViewById(R.id.diputadoSuplente);
             diputadoNombre = (TextView) itemView.findViewById(R.id.diputadoNombre);
-            diputadoCurrul = (TextView) itemView.findViewById(R.id.diputadoCurrul);
-            diputadoEmail = (TextView) itemView.findViewById(R.id.diputadoEmail);
+//            diputadoCurrul = (TextView) itemView.findViewById(R.id.diputadoCurrul);
+//            diputadoEmail = (TextView) itemView.findViewById(R.id.diputadoEmail);
         }
 
     }
