@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.tse.listdirectorio.Model.Diputado;
 import com.example.tse.listdirectorio.Network.VolleySingleton;
 import com.example.tse.listdirectorio.R;
+import com.example.tse.listdirectorio.animate.AnimationUtils;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class AdapterDiputado extends RecyclerView.Adapter<AdapterDiputado.ViewHo
     private LayoutInflater layoutInflater;
     private ArrayList<Diputado> listDiputados = new ArrayList<>();
     private VolleySingleton volleySingleton;
+
+    private int previouPosition = 0;
 
     public AdapterDiputado(Context context) {
         layoutInflater = layoutInflater.from(context);
@@ -49,6 +52,13 @@ public class AdapterDiputado extends RecyclerView.Adapter<AdapterDiputado.ViewHo
 //        viewHolderDiputado.diputadoCurrul.setText(currentDiputado.getCurul());
         viewHolderDiputado.diputadoFraccion.setText(currentDiputado.getFraccion());
 //        viewHolderDiputado.diputadoTipoEleccion.setText(currentDiputado.getTipo_de_eleccion());
+        if(position > previouPosition){
+            AnimationUtils.animate(viewHolderDiputado, true);
+        }else{
+            AnimationUtils.animate(viewHolderDiputado, false);
+        }
+        previouPosition = position;
+
     }
 
     @Override
